@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import setupStore from './store/storeconfig';
 import App from './components/App';
@@ -15,5 +14,3 @@ setupStore().then((store) =>
       document.getElementById('root')
    )
 );
-
-serviceWorker.unregister();

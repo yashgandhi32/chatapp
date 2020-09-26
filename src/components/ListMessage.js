@@ -4,25 +4,25 @@ import Message from './Message';
 import '../styles/ListMessage.css';
 import '../styles/index.css';
 
-const MessageList = ({friendName, messages, me}) => {
+const ListMessage = ({ friendName, messages, me }) => {
     return (
         <section className='message-container scrollable'>
             <div className='message-container__title container-border__bottom'>
                 {friendName}
             </div>
             {
-              messages && messages.map((message) => {
-                return <Message key ={message.messageid} data={message} from={me}/>
-              })
+                messages && messages.map((message) => {
+                    return <Message key={message.messageid} data={message} from={me} />
+                })
             }
         </section>
     )
 }
 
-MessageList.propTypes={
+ListMessage.propTypes = {
     friendName: PropTypes.string.isRequired,
     messages: PropTypes.arrayOf(PropTypes.shape({
-        messageText : PropTypes.string.isRequired,
+        messageText: PropTypes.string.isRequired,
         messageid: PropTypes.string.isRequired,
         from: PropTypes.shape({ userid: PropTypes.string.isRequired, username: PropTypes.string.isRequired }),
         to: PropTypes.shape({ userid: PropTypes.string.isRequired, username: PropTypes.string.isRequired })
@@ -31,4 +31,4 @@ MessageList.propTypes={
     me: PropTypes.string.isRequired
 }
 
-export default MessageList;
+export default ListMessage;
